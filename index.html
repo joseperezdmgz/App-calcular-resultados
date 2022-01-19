@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Fut champs app</title>
+  </head>
+  <body>
+    <div id="tittle">
+      <h1>FUT CHAMPIONS APP</h1>
+    </div>
+
+    <form id="input">
+      <label for="pointsUser"> </label>
+      <input
+        type="number"
+        id="pointsUser"
+        placeholder="Cuantos puntos llevas?"
+        required
+        min="1"
+        max="80"
+      />
+      <label for="matchUser"> </label>
+      <input
+        type="number"
+        id="matchUser"
+        placeholder="Partidos restantes"
+        min="1"
+        max="20"
+      />
+      <div id="button">
+        <button type="button" onclick="getPoints()">
+          <img
+            src="https://as1.ftcdn.net/v2/jpg/01/81/92/86/1000_F_181928640_bOxkLVwvlHDlKBzjz27daK9QNhaSm89E.jpg"
+          />
+        </button>
+      </div>
+    </form>
+    <div id="midfield"></div>
+    <div id="midfield-sphere"></div>
+    <p id="valueInput"></p>
+    <footer id="footer">
+      <a href="https://joseperezdmgz.netlify.app/" target="_blank">
+        joseperezdmgz©
+      </a>
+    </footer>
+
+    <script>
+      const getPoints = () => {
+        let pointsUser = document.getElementById("pointsUser").value;
+        let matchUser = document.getElementById("matchUser").value;
+
+        calculator(pointsUser, matchUser);
+      };
+
+      function calculator(pointsUser, matchUser) {
+        let match = 20 - matchUser;
+        let wins = 0;
+        let defeats = match;
+
+        for (let i = 0; i < 20; i++) {
+          if (defeats < 0) {
+            return (document.getElementById("valueInput").innerHTML =
+              "Algo va mal");
+          }
+          if (wins * 4 + defeats != pointsUser) {
+            wins++,
+              defeats--,
+              (document.getElementById("valueInput").innerHTML =
+                wins + "-" + defeats);
+            continue;
+          }
+          if (pointsUser % 4 == 0 && wins == match && match > 0) {
+            return (document.getElementById("valueInput").innerHTML =
+              "Pleno de victorias: " + wins + "-" + 0);
+          }
+          if (defeats + wins == match && pointsUser == wins * 4 + defeats) {
+            return (document.getElementById("valueInput").innerHTML =
+              "Vas " + wins + "-" + defeats);
+          }
+          if (matchRest == 20) {
+            return (document.getElementById("valueInput").innerHTML =
+              "Aún no has empezado. Espabila que te quedas sin rojos");
+          } else {
+            return (document.getElementById("valueInput").innerHTML =
+              "Algo va mal");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
