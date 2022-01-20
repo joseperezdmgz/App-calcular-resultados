@@ -28,7 +28,7 @@ h1 {
   border: 4px solid;
   border-top: 0px;
   height: 112px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 #input {
@@ -44,6 +44,10 @@ input {
   margin-top: 25px;
   border-radius: 20px;
   border-color: #51a331;
+}
+input::placeholder {
+  color: #1e2936;
+  font-weight: 600;
 }
 
 #button {
@@ -66,9 +70,9 @@ img {
   border: 4px solid;
   width: 60%;
   margin: auto;
-  margin-top: -115px;
+  height: 200px;
+  margin-top: -100px;
   border-radius: 100%;
-  height: 225px;
 }
 #valueInput {
   text-align: center;
